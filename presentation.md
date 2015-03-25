@@ -2,7 +2,7 @@
 % EPFL//VPSI//EXOP
 % Jean-Baptiste Aubort - \today
 
-![GIT Introduction](resources/git.png)
+![](resources/git.png)
 
 # Summary
 
