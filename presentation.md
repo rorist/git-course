@@ -87,7 +87,7 @@ git branch -D MyBranch
 ```
 
 # Hands on GIT
-## branch/checkout
+## branch/merge/checkout
 
 * Branching for a feature and merge back
 
@@ -112,6 +112,15 @@ git merge MyBranch
 ```
 
 # Hands on GIT
+## stash
+
+```
+git stash
+git stash show
+git stash apply
+```
+
+# Hands on GIT
 ## log/tig
 
 ```
@@ -129,6 +138,14 @@ git grep MyString
 ```
 
 ## hooks
+
+```
+echo "echo TEST"  > .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+git touch test
+git add test
+git commit -m "commit message"
+```
 
 # Hands on GIT
 
@@ -148,8 +165,31 @@ git grep MyString
 
 # Share repositories
 ## github.com
+
+* Social network around git: follow, comment
+* Projet management: Wiki, Bug report, Website, Statistics, Release (tags), fork
+* Team managment: Groups, branch, pull requests
+* Integration: Webhooks (to REST API), Services (Jenkins, Bugzilla, a lot and lot of services)
+* Access by SSH keys or login
+* Access via different protocols: SSH, HTTPS or SVN
+* Quota: 1GB per repository (soft limit), 100MB per file
+
 ## git.epfl.ch
+
+* Acces via HTTPS using EPFL gaspar account
+* Manage user and groups via EPFL gaspar username and groups.epfl.ch
+* Git can save password locally using git credentials (in memory, os keyring or text file)
+* Commit notification by email (by service-side hook)
+* Quota: 2GB per repository
+
 ## SSH/HTTP
+
+* Simply put the bare repository accessible via an HTTP server or via SSH in a shared directory
+```
+git clone --bare http://originalrepo /path/to/copy
+git clone --bare /path/to/original /path/to/copy
+```
+* Git also has an http server built-in
 
 #References
 
