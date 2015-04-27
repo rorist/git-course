@@ -182,6 +182,7 @@ git commit -m "commit message"
 * Commit notification by email (by service-side hook)
 * Quota: 2GB per repository
 
+# Share repositories
 ## SSH/HTTP
 
 * Simply put the bare repository accessible via an HTTP server or via SSH in a shared directory
@@ -193,7 +194,6 @@ git clone --bare /path/to/original /path/to/copy
 
 #References
 
-## Title 2
 * <https://git-scm.herokuapp.com/documentation/>
 * <http://www-cs-students.stanford.edu/~blynn/gitmagic/>
 * <https://marklodato.github.io/visual-git-guide/index-en.html>
