@@ -1,26 +1,27 @@
 % Introduction to GIT
 % Jean-Baptiste Aubort; EPFL//VPSI//EXOP
 % \today
+<!-- http://johnmacfarlane.net/pandoc/demo/example9/pandocs-markdown.html -->
+
+# Introduction to GIT
+
+![](resources/git.png)
 
 # Summary
-<!-- http://johnmacfarlane.net/pandoc/demo/example9/pandocs-markdown.html -->
 
 * History of GIT
 * Hands on GIT
-    * add/commit
+    * status/add/commit
     * clone/remote/pull/push
-    * branch/checkout
-    * log/show/tig
+    * branch/merge/checkout/rebase
+    * reflog/log/show/tig
+    * ls-tree/show/grep
     * hooks
 * How it works
 * Share repositories
     * github.com
     * git.epfl.ch
     * SSH/HTTP
-
-# Introduction to GIT
-
-![](resources/git.png)
 
 # History of GIT
 
@@ -67,7 +68,7 @@ git push myserver master
 ```
 
 # Hands on GIT
-## branch/checkout
+## branch/checkout/merge/rebase
 
 * Create a new branch from HEAD
 ```
@@ -87,7 +88,7 @@ git branch -D MyBranch
 ```
 
 # Hands on GIT
-## branch/merge/checkout
+## branch/merge/checkout/rebase
 
 * Branching for a feature and merge back
 
@@ -111,6 +112,19 @@ git merge MyBranch
 * 540ad1d First commit
 ```
 
+## # Hands on GIT
+## branch/merge/checkout/rebase
+
+* Rebase works like merge but changes the branched commit reference to the HEAD of merged branch
+* It rewrites history !
+
+```
+* 92b8ca5 Fix conflict
+* 25e7adc Adding content
+* ba058ef New feature
+* 540ad1d First commit
+```
+
 # Hands on GIT
 ## stash
 
@@ -121,11 +135,12 @@ git stash apply
 ```
 
 # Hands on GIT
-## log/tig
+## reflog/log/tig
 
 ```
 git log
 git log HEAD^
+git reflog
 ```
 
 ## ls-tree/show/grep
@@ -151,11 +166,17 @@ git commit -m "commit message"
 
 ![](resources/operations.png)
 
+# Hands on GIT
+
+![](resources/transport.png)
+
 # How it works
 
 * Created to work like a filesystem, with versioning
 * Composed of two data structures
     * Index (mutable)
+        * List of current tree structure
+        * git ls-file --stage #to see index content
     * Object database (immutable), identified by a SHA-1 hash
         * Blob: Binary object, each file is stored as a blob compressed with zlib
         * Packs: Objects are packed together (by similarity) and delta-compressed, a pack index is created to keep track of files
@@ -167,8 +188,8 @@ git commit -m "commit message"
 ## github.com
 
 * Social network around git: follow, comment
-* Projet management: Wiki, Bug report, Website, Statistics, Release (tags), fork
-* Team managment: Groups, branch, pull requests
+* Projet management: Wiki, Bug report, Website, Statistics, Release (tags), fork, comments line commit
+* Team managment: Groups, branch, pull requests, auto-merge
 * Integration: Webhooks (to REST API), Services (Jenkins, Bugzilla, a lot and lot of services)
 * Access by SSH keys or login
 * Access via different protocols: SSH, HTTPS or SVN
@@ -200,3 +221,4 @@ git clone --bare /path/to/original /path/to/copy
 * <http://ndpsoftware.com/git-cheatsheet.html>
 * <https://github.com/esc/git-big-picture>
 * List of Torvalds insults in 2014 <http://flossdata.syr.edu/data/insults/2014LTinsultsLKML.tsv.txt>
+* <http://blog.osteele.com/posts/2008/05/my-git-workflow/>
