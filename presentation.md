@@ -112,7 +112,7 @@ git merge MyBranch
 * 540ad1d First commit
 ```
 
-## # Hands on GIT
+# Hands on GIT
 ## branch/merge/checkout/rebase
 
 * Rebase works like merge but changes the branched commit reference to the HEAD of merged branch
